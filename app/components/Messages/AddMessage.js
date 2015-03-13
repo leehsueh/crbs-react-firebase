@@ -1,7 +1,6 @@
 var React = require('react');
-var notesActions = require('../../actions/notesActions');
 
-var AddNote = React.createClass({
+var AddMessage = React.createClass({
   propTypes: {
     username: React.PropTypes.string.isRequired
   },
@@ -9,10 +8,7 @@ var AddNote = React.createClass({
     e.preventDefault();
     var note = this.refs.newNote.getDOMNode().value;
     if (note.trim()) {
-      notesActions.addNote({
-        note: note,
-        user: this.props.username
-      });
+      // TODO: create action
       this.refs.newNote.getDOMNode().value = '';
     }
   },
@@ -30,4 +26,4 @@ var AddNote = React.createClass({
   }
 });
 
-module.exports = AddNote;
+module.exports = AddMessage;

@@ -1,14 +1,16 @@
 var keyMirror = require('react/lib/keyMirror');
-var constants = keyMirror({
-  GITHUB_USER_BIO: null,
-  GITHUB_USER_REPOS: null,
-  GITHUB_CHANGE_USER: null,
+var actionTypes = keyMirror({
+  LIST_ROOMS: null,
+  CREATE_ROOM: null,
+  CHANGE_ROOM: null,
+  DELETE_ROOM: null,
 
-  ADD_NOTE: null,
-  DELETE_NOTE: null,
-  CHANGE_USER: null,
+  UPDATE_PASSAGES: null,
+  UPDATE_USERS: null,
+  UPDATE_MESSAGES: null
 });
 
-constants.FIREBASE_HOST = 'https://hlh-react-github-notetaker.firebaseio.com/';
 
-module.exports = constants;
+module.exports = {
+  actionTypes: actionTypes,
+}

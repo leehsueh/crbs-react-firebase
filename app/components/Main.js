@@ -1,17 +1,19 @@
 var React = require('react');
-var Home = require('./Home');
+var ListRooms = require('./ListRooms');
 var Router = require('react-router');
+var Link = Router.Link;
 var RouteHandler = Router.RouteHandler;
-var SearchGithub = require('./SearchGithub');
+var CreateRoom = require('./CreateRoom');
 
 var Main = React.createClass({
   render: function(){
     return (
       <div className="main-container">
         <nav className="navbar navbar-default" role="navigation">
-          <div className="col-sm-7 col-sm-offset-2" style={{marginTop: 15}}>
-            <SearchGithub />
-          </div>
+          <div className="navbar-brand">Bible Study Rooms</div>
+          <ul className="nav navbar-nav">
+            <li><Link to="app">Home</Link></li>
+          </ul>
         </nav>
         <div className="container">
           <RouteHandler />
