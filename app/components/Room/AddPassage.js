@@ -18,7 +18,7 @@ var AddPassage = React.createClass({
       <div>
         <form onSubmit={this.handleSubmit}>
           <div className="input-group">
-            <input type="text" className="form-control" ref="fullRef" placeholder="Bible reference" />
+            <input type="text" className="form-control" ref="fullRef" placeholder="Bible reference (e.g. John 3:16)" />
             <span className="input-group-btn">
               <button type="submit" className="btn btn-block btn-primary">Add Passage</button>
             </span>

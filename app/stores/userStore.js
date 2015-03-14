@@ -36,7 +36,7 @@ var userStore = objectAssign({}, EventEmitter.prototype, {
     var user = _state.users.filter(function(u) {
       return u.key === _state.currUser;
     });
-    return user[0].name;
+    return user[0] && user[0].name || '';
   }
 });
 

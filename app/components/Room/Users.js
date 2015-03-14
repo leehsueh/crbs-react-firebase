@@ -13,10 +13,12 @@ var Users = React.createClass({
   componentDidMount: function() {
     userStore.addChangeListener(this.handleChange);
     userActions.enterUser(this.props.roomKey, 'anonymous');
+
   },
   componentWillUnmount: function() {
     userStore.removeChangeListener(this.handleChange);
     userActions.exitUser(this.props.roomKey, this.state.currUser);
+
   },
   handleChange: function() {
     this.setState(userStore.getState());
@@ -25,6 +27,10 @@ var Users = React.createClass({
     this.setState({
       show: !this.state.show
     })
+  },
+  handleChangeName: function() {
+    var newName = prompt('Enter new name');
+    userActions.changeName(this.props.roomKey, this.state.currUser, newName);
   },
 
   render: function(){
@@ -38,7 +44,8 @@ var Users = React.createClass({
     }
     return (
       <div>
-        <h4>{this.state.users.length} users here <a onClick={this.toggleShow} style={{cursor:'pointer'}}>{this.state.show && 'Hide' || 'Show'}</a></h4>
+        {userStore.getCurrentUsername() && <small>You are <b>{userStore.getCurrentUsername()}</b>. <a onClick={this.handleChangeName}>Change</a></small>}
+        <p>{this.state.users.length} users here <a onClick={this.toggleShow} style={{cursor:'pointer'}}>{this.state.show && 'Hide' || 'Show'}</a></p>
         {listGroup}
       </div>
     )

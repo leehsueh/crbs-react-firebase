@@ -20,6 +20,15 @@ var deleteRoom = function(roomKey) {
   });
 };
 
+var updateUsersForRoom = function(roomKey, users) {
+  _state.rooms.forEach(function(room) {
+    if (room.key === roomKey) {
+      room.users = users;
+      return;
+    }
+  });
+};
+
 var listRoomsStore = objectAssign({}, EventEmitter.prototype, {
   // let components register for changes
   addChangeListener: function(cb) {

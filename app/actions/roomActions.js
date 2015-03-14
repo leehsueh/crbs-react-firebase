@@ -29,7 +29,7 @@ var roomActions = {
 
   },
   listRooms: function() {
-    firebaseUtils.homeInstance().once('value', function(snapshot) {
+    firebaseUtils.homeInstance().on('value', function(snapshot) {
       console.log('on list rooms');
       AppDispatcher.handleFirebaseAction({
         type: appConstants.actionTypes.LIST_ROOMS,
@@ -62,7 +62,8 @@ var roomActions = {
       AppDispatcher.handleFirebaseAction({
         type: appConstants.actionTypes.UPDATE_USERS,
         data: firebaseUtils.toArrayWithKeys(snapshot.val(), 'name')
-      })
+      });
+
     });
 
     // register changes on messages

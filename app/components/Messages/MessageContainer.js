@@ -5,6 +5,7 @@ var MessageList = require('./MessageList');
 var messageActions = require('../../actions/messageActions');
 var messageStore = require('../../stores/messageStore');
 var userStore = require('../../stores/userStore');
+var userActions = require('../../actions/userActions');
 
 var MessageContainer = React.createClass({
   propTypes: {
@@ -25,6 +26,7 @@ var MessageContainer = React.createClass({
   handleAddMessage: function(message) {
     messageActions.addMessage(this.props.roomKey, userStore.getCurrentUsername(), message);
   },
+
   render: function() {
     return (
       <div>
