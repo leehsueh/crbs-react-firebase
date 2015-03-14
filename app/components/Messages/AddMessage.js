@@ -2,13 +2,13 @@ var React = require('react');
 
 var AddMessage = React.createClass({
   propTypes: {
-    username: React.PropTypes.string.isRequired
+    onAddMessage: React.PropTypes.func.isRequired
   },
   handleSubmit: function(e) {
     e.preventDefault();
     var note = this.refs.newNote.getDOMNode().value;
     if (note.trim()) {
-      // TODO: create action
+      this.props.onAddMessage(note);
       this.refs.newNote.getDOMNode().value = '';
     }
   },
@@ -18,7 +18,7 @@ var AddMessage = React.createClass({
         <div className="input-group">
           <input className="form-control" type="text" ref="newNote"/>
           <span className="input-group-btn">
-            <button type="submit" className="btn btn-default input-append">Add note</button>
+            <button type="submit" className="btn btn-default input-append">Send</button>
           </span>
         </div>
       </form>

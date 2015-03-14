@@ -6,7 +6,7 @@ var objectAssign = require('react/lib/Object.assign');
 var CHANGE_EVENT = 'change';
 
 var _state = {
-  rooms: [{name: 'Test', key: 'test'}],
+  rooms: [],
 }
 
 // private setters

@@ -19,14 +19,21 @@ var firebaseUtils = {
   resetPassages: function(roomKey) {
     this.homeInstance().child(roomKey).child('passages').remove();
   },
-  addMessage: function(roomKey, messageObj) {
+  addMessage: function(roomKey, username, text) {
+    var messageObj = {
+      user: username,
+      text: text
+    };
     this.homeInstance().child(roomKey).child('messages').push(messageObj);
   },
-  addUser: function() {
-
+  enterUser: function(roomKey, username) {
+    return this.homeInstance().child(roomKey).child('users').push(username);
   },
-  removeUser: function(userKey) {
-
+  setUser: function(roomKey, userKey, username) {
+    this.homeInstance().child(roomKey).child('users/' + userKey).set(username);
+  },
+  exitUser: function(roomKey, userKey) {
+    this.homeInstance().child(roomKey).child('users').child(userKey).remove();
   },
 
 

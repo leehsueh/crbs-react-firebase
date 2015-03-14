@@ -30,10 +30,11 @@ var ListRooms = React.createClass({
   },
   render: function(){
     var roomItems = this.state.rooms.map(function(room) {
+      var numUsers = room.users && Object.keys(room.users).length;
       return (
         <tr key={room.key}>
           <td style={{width:'80%'}}>{room.name}</td>
-          <td style={{width:'20%'}}><Link className="btn btn-primary" to="room" params={{roomKey: room.key}}>Join room</Link></td>
+          <td style={{width:'20%'}}><Link className="btn btn-primary" to="room" params={{roomKey: room.key}}>Join {numUsers && (numUsers + ' users') || 'room'}</Link></td>
         </tr>
       );
     })

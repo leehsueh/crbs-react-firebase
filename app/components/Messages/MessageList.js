@@ -1,19 +1,19 @@
 var React = require('react');
 
-var NotesList = React.createClass({
+var MessageList = React.createClass({
   propTypes: {
     messages: React.PropTypes.array
   },
   render: function(){
     var messages = this.props.messages.map(function(note, index){
-      return <li className="list-group-item" key={index}><a style={{cursor:'pointer'}} onClick={this.props.onDelete.bind(null,note.key)}><i className="glyphicon glyphicon-remove"></i></a> {note.text} </li>
+      return <div key={index}><small><b>{note.user}:</b></small><br/> {note.text} </div>
     }.bind(this));
     return (
-      <ul className="list-group">
+      <div className="well" style={{maxHeight:600, overflowY: 'scroll'}}>
         {messages}
-      </ul>
+      </div>
     )
   }
 });
 
-module.exports = NotesList;
+module.exports = MessageList;

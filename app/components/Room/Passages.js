@@ -23,7 +23,7 @@ var Passages = React.createClass({
           <div className="col-sm-6" key={passage.key}>
             <a className="close" onClick={this.handleRemovePassage.bind(null, passage.key)}>&times;</a>
             <h4>{passage.fullRef}</h4>
-            <p>{passage.text}</p>
+            <div style={{maxHeight: 300, overflowY: 'scroll'}}>{passage.text}</div>
           </div>
         )
       }.bind(this));

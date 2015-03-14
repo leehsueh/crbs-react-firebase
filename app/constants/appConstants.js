@@ -7,7 +7,8 @@ var actionTypes = keyMirror({
 
   UPDATE_PASSAGES: null,
   UPDATE_USERS: null,
-  UPDATE_MESSAGES: null
+  UPDATE_MESSAGES: null,
+  UPDATE_CURR_USER: null
 });
 
 

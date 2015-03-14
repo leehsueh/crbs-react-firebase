@@ -1,8 +1,11 @@
 var React = require('react');
 var Passages = require('./Room/Passages');
+var Users = require('./Room/Users');
+var MessageContainer = require('./Messages/MessageContainer');
 var Router = require('react-router');
 var roomStore = require('../stores/roomStore');
 var roomActions = require('../actions/roomActions');
+
 
 var Room = React.createClass({
   mixins: [ Router.State ],
@@ -30,7 +33,10 @@ var Room = React.createClass({
             <Passages roomKey={this.getParams().roomKey} passages={this.state.room.passages} />
           </div>
           <div className="col-md-4">
+            <h3>Users</h3>
+            <Users roomKey={this.getParams().roomKey} />
             <h3>Messages</h3>
+            <MessageContainer roomKey={this.getParams().roomKey} />
           </div>
         </div>
       </div>

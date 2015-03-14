@@ -61,7 +61,7 @@ var roomActions = {
     firebaseUtils.homeInstance().child(roomKey).child('users').on('value', function(snapshot) {
       AppDispatcher.handleFirebaseAction({
         type: appConstants.actionTypes.UPDATE_USERS,
-        data: firebaseUtils.toArrayWithKeys(snapshot.val())
+        data: firebaseUtils.toArrayWithKeys(snapshot.val(), 'name')
       })
     });
 
